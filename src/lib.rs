@@ -241,15 +241,8 @@ fn parse_modifiers(field: &syn::Field) -> Result<ParseModifiers, TokenStream> {
                         .into())
                     }
                 }
-            }
-            _ => {
-                return Err(syn::Error::new(
-                    attr.pound_token.span,
-                    "Expected meta list Foo(a, b, c)",
-                )
-                .to_compile_error()
-                .into())
-            }
+            },
+            _ => {}
         }
         // let name = attr.meta.require_name_value().map_err(|e| e.to_compile_error())?;
         // let id = name.path.get_ident().unwrap();
